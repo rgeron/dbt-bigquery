@@ -1,0 +1,90 @@
+# Sources Google Trends - BigQuery Public Dataset
+# Dataset: bigquery-public-data.google_trends
+# Documentation: https://support.google.com/trends/answer/12764470
+
+version: 2
+
+sources:
+  - name: google_trends
+    description: "Données open source Google Trends (Top 25 terms et Top 25 Rising) - US et International"
+    database: bigquery-public-data
+    schema: google_trends
+    meta:
+      partition_by: refresh_date  # Toujours filtrer sur cette partition pour optimiser les coûts
+
+    tables:
+      - name: top_terms
+        description: "Top 25 termes les plus recherchés aux États-Unis par DMA (Nielsen Designated Market Area)"
+        columns:
+          - name: refresh_date
+            description: "Date d'actualisation des données (partition - rétention 30 jours)"
+          - name: week
+            description: "Semaine de référence pour l'historique du terme"
+          - name: dma_name
+            description: "Zone géographique Nielsen DMA (US uniquement)"
+          - name: term
+            description: "Terme de recherche"
+          - name: rank
+            description: "Classement 1-25"
+          - name: score
+            description: "Score relatif de popularité"
+
+      - name: top_rising_terms
+        description: "Top 25 termes à la croissance la plus rapide aux États-Unis"
+        columns:
+          - name: refresh_date
+            description: "Date d'actualisation (partition)"
+          - name: week
+            description: "Semaine de référence"
+          - name: dma_name
+            description: "Zone géographique Nielsen DMA"
+          - name: term
+            description: "Terme de recherche"
+          - name: rank
+            description: "Classement 1-25"
+          - name: score
+            description: "Score de popularité"
+          - name: percent_gained
+            description: "Pourcentage de gain (rising terms uniquement)"
+
+      - name: international_top_terms
+        description: "Top 25 termes les plus recherchés - International (~50 pays)"
+        columns:
+          - name: refresh_date
+            description: "Date d'actualisation (partition)"
+          - name: week
+            description: "Semaine de référence"
+          - name: country_name
+            description: "Nom du pays"
+          - name: country_code
+            description: "Code ISO du pays"
+          - name: region_name
+            description: "Région/sous-région (ISO 3166-2)"
+          - name: term
+            description: "Terme de recherche"
+          - name: rank
+            description: "Classement 1-25"
+          - name: score
+            description: "Score relatif de popularité"
+
+      - name: international_top_rising_terms
+        description: "Top 25 termes à la croissance la plus rapide - International"
+        columns:
+          - name: refresh_date
+            description: "Date d'actualisation (partition)"
+          - name: week
+            description: "Semaine de référence"
+          - name: country_name
+            description: "Nom du pays"
+          - name: country_code
+            description: "Code ISO du pays"
+          - name: region_name
+            description: "Région/sous-région"
+          - name: term
+            description: "Terme de recherche"
+          - name: rank
+            description: "Classement 1-25"
+          - name: score
+            description: "Score de popularité"
+          - name: percent_gained
+            description: "Pourcentage de gain"

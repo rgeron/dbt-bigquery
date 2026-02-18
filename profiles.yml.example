@@ -1,0 +1,24 @@
+# dbt Profile - BigQuery
+# Copier ce fichier vers ~/.dbt/profiles.yml
+# Remplacer your-gcp-project-id et mydataset par vos valeurs
+
+default:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth  # ou service-account, voir docs dbt-bigquery
+      project: your-gcp-project-id
+      dataset: mydataset  # Dataset où dbt créera les modèles
+      threads: 4
+      # Pour BigQuery Sandbox (sans carte): pas de location requise
+      # Pour projet payant, décommenter:
+      # location: EU  # ou US, selon votre projet
+
+    prod:
+      type: bigquery
+      method: oauth
+      project: your-gcp-project-id
+      dataset: mydataset
+      threads: 4
+      # location: EU
