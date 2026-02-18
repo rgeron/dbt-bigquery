@@ -7,18 +7,18 @@ default:
   outputs:
     dev:
       type: bigquery
-      method: oauth  # ou service-account, voir docs dbt-bigquery
-      project: your-gcp-project-id
-      dataset: mydataset  # Dataset où dbt créera les modèles
+      method: oauth # ou service-account, voir docs dbt-bigquery
+      project: testing-dbt-487819
+      dataset: rgeron # Dataset où dbt créera les modèles
       threads: 4
       # Pour BigQuery Sandbox (sans carte): pas de location requise
       # Pour projet payant, décommenter:
-      # location: EU  # ou US, selon votre projet
+      location: EU # ou US, selon votre projet
 
     prod:
       type: bigquery
       method: oauth
-      project: your-gcp-project-id
-      dataset: mydataset
+      project: testing-dbt-487819
+      dataset: rgeron
       threads: 4
-      # location: EU
+      location: EU
