@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: rgeron
+    database: testing-dbt-487819 # Replace with your project ID if different, assume correct from profiles.yml
+    schema: rgeron
+    tables:
+      - name: companies
+      - name: funding_investments
+      - name: fundings
