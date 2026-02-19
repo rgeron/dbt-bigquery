@@ -12,9 +12,10 @@ renamed as (
         cast(num_funding_rounds as int64) as num_funding_rounds,
         cast(total_funding_usd as numeric) as total_funding_usd,
         cast(founded_on as date) as founded_on,
-        description,
-        category_list
+        {{ clean_description('description') }} as description,
+        {{ parse_categories('category_list') }} as category_list
     from source
 )
 
 select * from renamed
+order by founded_on
