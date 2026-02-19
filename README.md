@@ -1,36 +1,14 @@
-# dbt Google Trends
+# dbt
 
-Projet dbt structuré selon les bonnes pratiques pour travailler avec les données **Google Trends open source** sur BigQuery.
+Projet dbt structuré selon les bonnes pratiques.
 
 ## Données sources
 
-- **Dataset**: `bigquery-public-data.google_trends`
-- **Tables**:
-  - `top_terms` – Top 25 termes US par DMA (Nielsen)
-  - `top_rising_terms` – Top 25 termes à la croissance la plus rapide US
-  - `international_top_terms` – Top 25 termes internationaux (~50 pays)
-  - `international_top_rising_terms` – Top 25 rising internationaux
+dataset: rgeron
 
-[Documentation Google Trends BigQuery](https://support.google.com/trends/answer/12764470)
-
-## Structure du projet (bonnes pratiques dbt)
-
-```
-models/
-├── staging/                    # Couche staging (sources → vues conformes)
-│   └── google_trends/
-│       ├── stg_google_trends__top_terms.sql
-│       ├── stg_google_trends__top_rising_terms.sql
-│       ├── stg_google_trends__international_top_terms.sql
-│       └── stg_google_trends__international_top_rising_terms.sql
-├── intermediate/               # Transformations intermédiaires
-│   └── int_google_trends__latest_international.sql
-└── marts/                      # Tables business-ready
-    ├── fct_google_trends_daily_international.sql
-    └── rpt_google_trends_top_by_country.sql
-```
-
-## Setup
+- companies
+- funding_investments
+- fundings
 
 1. **Installer dbt pour BigQuery** :
 
@@ -49,7 +27,7 @@ cp profiles.yml.example ~/.dbt/profiles.yml
 
 ```yaml
 vars:
-  trends_partition_days: 1  # 1 = hier, 7 = dernière semaine, etc.
+  trends_partition_days: 1 # 1 = hier, 7 = dernière semaine, etc.
 ```
 
 ## Commandes
@@ -66,11 +44,11 @@ dbt docs serve     # Servir la doc (interface web)
 
 ## Bonnes pratiques appliquées
 
-| Couche | Rôle | Materialization |
-|--------|------|-----------------|
-| **Staging** | Renommage, types, filtres de base | View |
-| **Intermediate** | Jointures, agrégations intermédiaires | View |
-| **Marts** | Tables business-ready pour BI | Table |
+| Couche           | Rôle                                  | Materialization |
+| ---------------- | ------------------------------------- | --------------- |
+| **Staging**      | Renommage, types, filtres de base     | View            |
+| **Intermediate** | Jointures, agrégations intermédiaires | View            |
+| **Marts**        | Tables business-ready pour BI         | Table           |
 
 - **Sources** : Déclaration YAML avec `source()` pour traçabilité
 - **Tests** : `not_null` sur les clés (refresh_date, term, rank)

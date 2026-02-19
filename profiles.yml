@@ -2,7 +2,7 @@
 # Copier ce fichier vers ~/.dbt/profiles.yml
 # Remplacer your-gcp-project-id et mydataset par vos valeurs
 
-dbt-testing:
+dbttesting:
   target: dev
   outputs:
     dev:

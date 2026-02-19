@@ -1,11 +1,11 @@
 # dbt Google Trends - Projet structuré selon les bonnes pratiques
 # https://docs.getdbt.com/best-practices/how-we-structure
 
-name: "dbt-testing"
+name: "dbttesting"
 version: "1.0.0"
 config-version: 2
 
-profile: "dbt-testing"
+profile: "dbttesting"
 
 model-paths: ["models"]
 analysis-paths: ["analyses"]
@@ -20,7 +20,7 @@ clean-targets:
   - "dbt_packages"
 
 models:
-  dbt-testing:
+  dbttesting:
     # Staging: vues légères, transformations minimales (renommage, types)
     staging:
       +materialized: view
