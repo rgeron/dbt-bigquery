@@ -4,7 +4,11 @@ with source as (
 
 renamed as (
     select
-        *
+        investment_id,
+        funding_id,
+        is_lead_investor,
+        investor_name,
+        investor_type
     from source
 )
 

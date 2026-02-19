@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document provides a comprehensive guide to the datasets provided for the **Predicting Startup Trajectories Using Heterogeneous Data** challenge. The data includes information on **27,843 startup companies** tracked across multiple dimensions including funding history, traction metrics (employment, web traffic, GitHub activity), people, and investor networks.
+This document provides a comprehensive guide to the datasets provided for the **Predicting Startup Trajectories Using Heterogeneous Data** challenge. The data includes information on **27,843 startup companies** tracked across multiple dimensions including funding history, and investor networks.
 
 The data spans multiple years and provides both **cross-sectional** (static company attributes) and **longitudinal** (time-series) information, enabling sophisticated predictive modeling of startup outcomes.
 
