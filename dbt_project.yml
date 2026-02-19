@@ -1,11 +1,11 @@
 # dbt Google Trends - Projet structuré selon les bonnes pratiques
 # https://docs.getdbt.com/best-practices/how-we-structure
 
-name: 'google_trends_dbt'
-version: '1.0.0'
+name: "dbt-testing"
+version: "1.0.0"
 config-version: 2
 
-profile: 'default'
+profile: "dbt-testing"
 
 model-paths: ["models"]
 analysis-paths: ["analyses"]
@@ -19,13 +19,8 @@ clean-targets:
   - "target"
   - "dbt_packages"
 
-vars:
-  # Nombre de jours en arrière pour le filtre de partition (défaut: 1 = hier)
-  # Optimise les coûts BigQuery en évitant de scanner les 30 jours
-  trends_partition_days: 1
-
 models:
-  google_trends_dbt:
+  dbt-testing:
     # Staging: vues légères, transformations minimales (renommage, types)
     staging:
       +materialized: view
