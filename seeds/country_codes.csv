@@ -1,21 +1,21 @@
 country_code,country_name
-US,United States
-GB,United Kingdom
-CA,Canada
-FR,France
-DE,Germany
-IN,India
-CN,China
-IL,Israel
-ES,Spain
-SE,Sweden
-BR,Brazil
-AU,Australia
-NL,Netherlands
-SG,Singapore
-JP,Japan
-RU,Russia
-IT,Italy
-KR,South Korea
-CH,Switzerland
-IE,Ireland
+USA,United States
+GBR,United Kingdom
+CAN,Canada
+FRA,France
+DEU,Germany
+IND,India
+CHN,China
+ISR,Israel
+ESP,Spain
+SWE,Sweden
+BRA,Brazil
+AUS,Australia
+NLD,Netherlands
+SGP,Singapore
+JPN,Japan
+RUS,Russia
+ITA,Italy
+KOR,South Korea
+CHE,Switzerland
+IRL,Ireland
