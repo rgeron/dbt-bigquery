@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: mart_cathay_fund_investments
+    description: "A mart model containing all investments made by 'Cathay' related funds, combined with detailed information about the startups and the funding rounds."
+    columns:
+      - name: investment_id
+        description: "Primary key for the investment."
+        tests:
+          - unique
+          - not_null
+      - name: investor_name
+        description: "Name of the investor (e.g. Cathay Innovation)."
+      - name: company_name
+        description: "Name of the startup receiving the investment."
+      - name: funding_name
+        description: "Description or name of the funding round."

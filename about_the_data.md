@@ -217,3 +217,5 @@ Companies.company_id (PRIMARY KEY)
     │       └── Funding_Investments.funding_id (FOREIGN KEY)
     │
 ```
+
+![alt text](db.png)
