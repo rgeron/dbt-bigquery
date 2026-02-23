@@ -1,3 +1,5 @@
+{% macro generate_fund_investments(fund_name) %}
+
 with companies as (
     select * from {{ ref('stg_rgeron__companies') }}
 ),
@@ -10,10 +12,10 @@ investments as (
     select * from {{ ref('stg_rgeron__funding_investments') }}
 ),
 
-cathay_investments as (
+target_investments as (
     select *
     from investments
-    where lower(investor_name) like '%cathay%'
+    where lower(investor_name) like '%{{ fund_name | lower }}%'
 ),
 
 final as (
@@ -42,9 +44,11 @@ final as (
         c.category_list as company_category_list,
         c.total_funding_usd as company_total_funding_usd
         
-    from cathay_investments i
+    from target_investments i
     left join fundings f on i.funding_id = f.funding_id
     left join companies c on f.company_id = c.company_id
 )
 
 select * from final
+
+{% endmacro %}
